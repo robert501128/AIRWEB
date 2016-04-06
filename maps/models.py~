@@ -36,6 +36,5 @@ class Post(Document):
   FAKE_GPS = IntField()
   time = DateTimeField()
   loc = EmbeddedDocumentField(Loc)
-  fmt_opt = IntField()
 
 

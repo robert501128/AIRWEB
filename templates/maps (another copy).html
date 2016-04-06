@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Maps</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ height: 100% }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+
+  // initialize the map
+  var map = L.map('map').setView([23.7859146, 120.9945463], 8);
+
+  // load a tile layer
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
+    {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      accessToken: 'pk.eyJ1Ijoicm9iZXJ0NTAxMTI4IiwiYSI6ImNpbWdkc2V5dDAxejh2Y202cHNrcDQwcTIifQ.U3Me8efJmnVkr8rMvPf0ww',
+      id: 'robert501128.pi9kohoa',
+      maxZoom: 17,
+      minZoom: 8
+    }).addTo(map);
+
+  </script>
+</body>
+</html>

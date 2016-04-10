@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 from mongoengine import connect
-
-connect('LASS')
+print connect('LASS', host='128.199.160.47', port=27017)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,6 +53,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'AIRWEB.urls'
+
 
 TEMPLATES = [
     {
@@ -121,3 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+
+

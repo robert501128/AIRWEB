@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <title>Maps</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+        lassLocs = {{ lass_locs }}
+        //lassLocs = [[24.785, 121.994], [23.785, 120.994]]
+    </script>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "index.css" %}">
+    <script src="{% static "index.js" %}"></script>
+</body>
+</html>

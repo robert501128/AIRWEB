@@ -7,9 +7,10 @@ from pprint import  pprint
 
 def maps(request):
     lass_locs = []
-    for loc in Post.objects(loc__geo_within_box=[(119.428,21.878),(122.380,25.357)]).distinct(field='loc'):
-        if loc['coordinates'] not in lass_locs:
-            lass_locs.append(swap(loc['coordinates']))
+    cursor = Post.objects(loc__geo_within_box=[(119.428,21.878),(122.380,25.357)]).aggregate({"$group": { "_id":"$device_id", "loc":{"$max":"$loc"}}})
+    for loc in cursor:
+        if loc['loc']['coordinates'] not in lass_locs:
+            lass_locs.append(swap(loc['loc']['coordinates']))
 
 
 

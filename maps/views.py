@@ -7,15 +7,20 @@ from pprint import  pprint
 
 def maps(request):
     lass_locs = []
-    cursor = Post.objects(loc__geo_within_box=[(119.428,21.878),(122.380,25.357)]).aggregate({"$group": { "_id":"$device_id", "loc":{"$max":"$loc"}}})
-    for loc in cursor:
-        if loc['loc']['coordinates'] not in lass_locs:
-            lass_locs.append(swap(loc['loc']['coordinates']))
+    device_id = []
+    s_d0 = []
+    cursor = Post.objects().order_by("-date").order_by("-time").aggregate({"$group": { "_id":"$device_id", "coordinates":{"$first":"$loc.coordinates"},"s_d0":{"$first":"$s_d0"}}})
+    for document in cursor:
+        if document['_id'] not in device_id:
+	    device_id.append(document['_id'])
+            lass_locs.append(swap(document['coordinates']))
+	    s_d0.append(document['s_d0'])
+            
 
 
 
     print len(lass_locs)
-    return render(request, 'index.html', { 'lass_locs': lass_locs })
+    return render(request, 'index.html', { 'lass_locs': lass_locs,'s_d0':s_d0,'device_id':device_id})
 
 
 

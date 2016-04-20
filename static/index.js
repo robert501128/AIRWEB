@@ -17,7 +17,7 @@ lassMarkers = [] // all the marker added to map
 // add devices locations
 for(var i = 0; i < lassLocs.length; i++) {
     var newMarker = L.marker(lassLocs[i]).addTo(map);
-    newMarker.bindPopup("<b>"+deviceId[i]+"</b><br>pm2.5: "+sD0[i]).openPopup();
+    newMarker.bindPopup("<b>"+deviceId[i]+"</b><br>pm2.5: "+sD0[i]);
     lassMarkers.push(newMarker);
 }
 

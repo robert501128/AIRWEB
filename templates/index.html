@@ -6,12 +6,21 @@
 </head>
 <body>
     <div id="map"></div>
-
     <script type="text/javascript">
-        lassLocs = {{ lass_locs }}
+        var lassLocs = {{ lass_locs }};
         // these two lines make the markers disappear
-	deviceId = {{ device_id }}
-	sD0 = {{ s_d0 }}
+        var deviceId = []
+	{% for id in device_id %}
+	    deviceId.push('{{ id }}');
+        {% endfor %}
+	var sD0 = [];
+	{% for pm25 in s_d0 %}
+	    {% if pm25 %}
+	      sD0.push({{ pm25 }});
+            {% else %}
+              sD0.push('None')
+	    {% endif %}
+        {% endfor %}
         //lassLocs = [[24.785, 121.994], [23.785, 120.994]]
     </script>
     {% load staticfiles %}

@@ -20,7 +20,7 @@ def maps(request):
 
 
     print len(lass_locs)
-    return render(request, 'index.html', { 'lass_locs': lass_locs,'s_d0':s_d0,'device_id':device_id, })
+    return render(request, 'index.html', { 'lass_locs': lass_locs,'s_d0':s_d0,'device_id':device_id[0]})
 
 
 

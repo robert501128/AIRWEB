@@ -3,28 +3,34 @@
     <title>Maps</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
     <div id="map"></div>
+
+
     <script type="text/javascript">
         var lassLocs = {{ lass_locs }};
         // these two lines make the markers disappear
         var deviceId = []
-	{% for id in device_id %}
-	    deviceId.push('{{ id }}');
+    	{% for id in device_id %}
+    	    deviceId.push('{{ id }}');
         {% endfor %}
-	var sD0 = [];
-	{% for pm25 in s_d0 %}
-	    {% if pm25 %}
-	      sD0.push({{ pm25 }});
+
+        var sD0 = [];
+	    {% for pm25 in s_d0 %}
+    	    {% if pm25 %}
+    	        sD0.push({{ pm25 }});
             {% else %}
-              sD0.push('None')
-	    {% endif %}
+                sD0.push('None')
+    	    {% endif %}
         {% endfor %}
         //lassLocs = [[24.785, 121.994], [23.785, 120.994]]
     </script>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static "index.css" %}">
     <script src="{% static "index.js" %}"></script>
+    <script src="{% static "graph.js" %}"></script>
 </body>
 </html>

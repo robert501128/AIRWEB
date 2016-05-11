@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from maps.views import maps
+
+from maps.views import maps, api
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
     url(r'^maps/$', maps),
+    url(r'^api/test.csv$', api),
 ]
